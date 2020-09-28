@@ -54,23 +54,35 @@ namespace Lab2WS
         private static void ExecuteScrambledWordsManualEntryScenario()
         {
             // 1 get the user's input - comma separated string containing scrambled words
-            // 2 Extract the words into a string (red,blue,green) 
+            // 2 Extract the words into a string (red,blue,green)
             // 3 Call the DisplayMatchedUnscrambledWords method passing the scrambled words string array
-
         }
 
         private static void DisplayMatchedScrambledWords(string[] scrambledWords)
         {
-            string[] wordList = fileReader.Read(@"wordlist.txt"); // Put in a constants file. CAPITAL LETTERS.  READONLY.
+            string[] wordList = fileReader.Read(Constants.WORDLIST); // Put in a constants file. CAPITAL LETTERS.  READONLY.
 
             List<MatchedWord> matchedWords = wordMatcher.Match(scrambledWords, wordList);
 
 
             // Rule:  Use a formatter to display ... eg:  {0}{1}
-
             // Rule:  USe an IF to determine if matchedWords is empty or not......
+
             //            if empty - display no words found message.
+            if (matchedWords == null)
+            {
+                Console.WriteLine("No words found");
+            }
+
             //            if NOT empty - Display the matches.... use "foreach" with the list (matchedWords)
+            else
+            {
+                foreach (MatchedWord matchedWord in MatchedWord)
+                {
+                    Console.WriteLine("Match found for the word {0} which is equal to {1}", 
+                                       matchedWord.ScrambledWord, matchedWord.Word);
+                }
+            }
         }
     }
 }
