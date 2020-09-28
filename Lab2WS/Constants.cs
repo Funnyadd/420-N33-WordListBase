@@ -1,7 +1,7 @@
-namespace Lab2WS
+﻿namespace Lab2WS
 {
     class Constants
     {
-        public static readonly string WORDLIST = @"worldlist.txt";
+        public static readonly string WORDLIST = @"wordlist.txt";
     }
 }
